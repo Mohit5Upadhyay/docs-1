@@ -4,9 +4,9 @@ export function prevNext(navigation, path) {
     let next = null;
     let found = false;
 
-    const recursiveFetch = (current) => {
-        if (current.children) {
-            for (const item of current.children.filter(item => item.path !== current.path)) {
+    const recursiveFetch = (children) => {
+        if (children) {
+            for (const item of children) {
                 if (next && prev) {
                     break;
                 }
@@ -23,17 +23,17 @@ export function prevNext(navigation, path) {
                     prev = item;
                 }
 
-                recursiveFetch(item)
+                recursiveFetch(item?.children)
             }
         }
     };
 
-    recursiveFetch(navigation[0]);
+    recursiveFetch(navigation);
 
     if(!found){
         // we're at a section's root
         prev = undefined;
-        next = navigation[0].children[1];
+        next = navigation[1];
     }else if(prev === null) {
         prev = navigation[0];
     }

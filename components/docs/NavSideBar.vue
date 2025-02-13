@@ -66,7 +66,7 @@
     const route = useRoute()
 
     const activeSlug = computed(() => route.path)
-    const items = computed(() => props.navigation?.[0]?.children ?? [])
+    const items = computed(() => props.navigation ?? [])
 </script>
 
 <style lang="scss" scoped>

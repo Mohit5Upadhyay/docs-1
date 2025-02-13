@@ -89,12 +89,7 @@
         });
       });
 
-      data.value[0].children = newData;
-
-
-    const navigation = data;
-
-    return {navigation, pageList, pageNames};
+    return {navigation: newData, pageList, pageNames};
   }
 
   const transformTitle = (text) => {

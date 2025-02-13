@@ -32,41 +32,26 @@
     </div>
 </template>
 
-<script>
-import {upperFirst} from 'scule'
-import ArrowLeft from "vue-material-design-icons/ArrowLeft.vue"
-import ArrowRight from "vue-material-design-icons/ArrowRight.vue"
-import {prevNext} from "~/utils/navigation.js";
+<script setup>
+    import {upperFirst} from 'scule'
+    import ArrowLeft from "vue-material-design-icons/ArrowLeft.vue"
+    import ArrowRight from "vue-material-design-icons/ArrowRight.vue"
+    import {prevNext} from "~/utils/navigation.js";
 
-// const {navDirFromPath} = useContentHelpers()
-const navDirFromPath = () => []
+    const route = useRoute();
 
-    export default defineComponent({
-        components: {ArrowLeft, ArrowRight},
-        async setup(props) {
-            const route = useRoute();
+    function directory(link) {
+        const dirs = link.split('/')
+        const directory = dirs[Math.max(1, dirs.length - 2)]
+        return directory.split('-').map(upperFirst).join(' ')
+    }
 
-            const {prev, next} = prevNext(props.navigation, route.path);
+    const props = defineProps({
+        navigation: {type: Object, required: true}
+    })
 
-            return {prev, next};
-        },
-        props: {
-            navigation: {type: Object, required: true}
-        },
-        methods: {
-            directory(link) {
-                const nav = navDirFromPath(link.path, this.navigation || [])
+    const {prev, next} = prevNext(props.navigation, route.path)
 
-                if (nav && nav[0]) {
-                    return nav[0].path
-                } else {
-                    const dirs = link.split('/')
-                    const directory = dirs[Math.max(1, dirs.length - 2)]
-                    return directory.split('-').map(upperFirst).join(' ')
-                }
-            },
-        }
-    });
 </script>
 
 

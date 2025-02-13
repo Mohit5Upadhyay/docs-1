@@ -74,12 +74,12 @@
 
     const fetchNavigation = async () => {
         const navigationFetch = await useFetch(`/api/plugins?type=navigation`);
-        const navigation = navigationFetch.data.value;
+        const [navigation] = navigationFetch.data.value;
 
-        const pageList = recursivePages(navigation[0]);
-        const pageNames = generatePageNames(navigation[0]);
+        const pageList = recursivePages(navigation);
+        const pageNames = generatePageNames(navigation);
 
-        return {navigation, pageList, pageNames};
+        return {navigation: navigation.children, pageList, pageNames};
     }
 
     const transformTitle = (text) => {
