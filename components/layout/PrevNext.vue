@@ -14,7 +14,7 @@
             </div>
         </NuxtLink>
 
-        <span v-else />
+        <span class="placeholder-prev" v-else />
 
         <NuxtLink
             v-if="next"
@@ -55,7 +55,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import "../../assets/styles/variable";
 
     .docs-prev-next {
@@ -69,6 +69,10 @@
         }
         .title {
             font-size: $font-size-sm;
+        }
+
+        .placeholder-prev{
+            width: 50%;
         }
 
         a {
