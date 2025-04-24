@@ -72,7 +72,7 @@ export default {
         margin-top: 1rem;
         display: flex;
         flex-wrap: wrap;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .author {
@@ -82,14 +82,15 @@ export default {
 
         .name {
             color: $white;
+            line-height: 1.8em;
             font-size: $font-size-md;
             font-weight: 600;
             margin: 0;
         }
 
         .role {
-            color: $white-1;
-            font-size: $font-size-sm;
+            color: $white-3;
+            font-size: $font-size-xs;
             margin-bottom: 0;
         }
     }
