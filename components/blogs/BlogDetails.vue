@@ -70,9 +70,9 @@ export default {
 
     .authors {
         margin-top: 1rem;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
     }
 
     .author {
