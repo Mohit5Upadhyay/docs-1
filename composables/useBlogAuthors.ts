@@ -1,4 +1,10 @@
-export const useBlogAuthors = (blog) => {
+export const useBlogAuthors = (blog: {
+    authors?: { name: string }[];
+    author?: { name: string };
+    authorName?: string;
+    authorImage?: string;
+    authorDescription?: string;
+}) => {
     const getAuthors = () => {
         if (blog.authors && blog.authors.length > 0) {
             return blog.authors;
@@ -18,4 +24,4 @@ export const useBlogAuthors = (blog) => {
         getAuthors,
         getFirstAuthorName
     };
-}; 
+};
