@@ -19,7 +19,7 @@ This resource is only available on the [Enterprise Edition](https://kestra.io/en
 
 ```hcl
 resource "kestra_service_account" "example" {
-  username    = "my-service-account"
+  name        = "my-service-account"
   description = "Friendly description"
 }
 ```
@@ -29,7 +29,7 @@ resource "kestra_service_account" "example" {
 
 ### Required
 
-- `username` (String) The service account name.
+- `name` (String) The service account name.
 
 ### Optional
 
@@ -47,7 +47,7 @@ Required:
 
 - `group_id` (String) The group id.
 
-Optional:
+Read-Only:
 
 - `tenant_id` (String) The tenant id for this group.
 
