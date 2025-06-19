@@ -15971,6 +15971,7 @@ components:
       - description
       - groupList
       - id
+      - isSuperAdmin
       - name
       type: object
       properties:
@@ -15988,6 +15989,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/AbstractUser.GroupIdentifier"
+        isSuperAdmin:
+          type: boolean
       description: A User Service Account.
     ApiTenant:
       required:
