@@ -400,11 +400,16 @@ paths:
         content:
           multipart/form-data:
             schema:
+              required:
+              - file
               type: object
               properties:
                 file:
                   type: string
                   format: binary
+                forceInstallOnExistingVersions:
+                  type: boolean
+                  nullable: true
             encoding:
               file:
                 contentType: application/octet-stream
